@@ -1,0 +1,14 @@
+#root {
+	min-height: 100vh;
+}
+
+.main_layout {
+	width: 1000px;
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.active {
+	background-color: #3567c5;
+}

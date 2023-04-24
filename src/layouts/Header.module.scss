@@ -1,0 +1,31 @@
+.main {
+	background-color: var(--fourth);
+	min-height: 50px;
+}
+
+.container {
+	width: 1000px;
+	min-height: 50px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 50px;
+}
+
+.container a {
+	padding: 0 20px;
+	height: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 400;
+	color: rgb(207, 207, 207);
+}
+
+.logo {
+	width: 100px;
+	cursor: pointer;
+	margin-right: 150px;
+	margin-left: 20px;
+}

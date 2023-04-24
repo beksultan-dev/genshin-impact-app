@@ -1,0 +1,112 @@
+.container {
+	background-color: var(--second);
+	padding: 30px;
+	border-radius: 5px;
+	min-height: 1000px;
+
+	.img_bg {
+		background-image: linear-gradient(
+			to bottom,
+			#00b054,
+			#00a77e,
+			#009a9b,
+			#008ba7,
+			#007aa1
+		);
+		height: 150px;
+		width: 150px;
+		border-radius: 5px;
+
+		.img {
+			width: 150px;
+			height: 150px;
+			object-fit: cover;
+			object-position: top;
+		}
+	}
+
+	.block_wrapper {
+		display: flex;
+		justify-content: flex-start;
+		gap: 30px;
+	}
+
+	.name {
+		font-size: 30px;
+		font-weight: 500;
+	}
+
+	.info {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		justify-content: center;
+	}
+
+	.block_skill {
+		background-color: var(--main);
+		padding: 20px;
+		border-radius: 5px;
+
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	.block {
+		background-color: var(--main);
+		padding: 20px;
+		border-radius: 5px;
+		position: relative;
+		height: 600px;
+
+		.vision_img {
+			position: absolute;
+			bottom: 20px;
+			left: 20px;
+		}
+
+		.nation_img {
+			position: absolute;
+			width: 300px;
+			bottom: 30px;
+			left: 100px;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 40px;
+		}
+	}
+
+	.big_img {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		width: 400px;
+		height: 600px;
+
+		img {
+			width: 100%;
+			border-radius: 5px;
+			height: 100%;
+			object-fit: cover;
+			object-position: top;
+		}
+	}
+
+	.weapon,
+	.vision {
+		border-radius: 4px;
+		padding: 10px 15px;
+		background-color: var(--third);
+		color: rgb(207, 207, 207);
+	}
+
+	.desc {
+		margin-top: 20px;
+		font-size: 20px;
+		width: 50%;
+		height: 120px;
+		overflow: hidden;
+	}
+}

@@ -1,0 +1,40 @@
+.wrap {
+	position: relative;
+
+	input {
+		padding: 10px 35px 10px 40px;
+		outline: none;
+		border: none;
+		font-size: 1em;
+		width: 250px;
+		border-radius: 5px;
+		background-color: var(--third);
+
+		&:focus {
+			background-color: var(--fourth);
+		}
+
+		&::placeholder {
+			color: rgba(207, 207, 207, 0.564);
+		}
+	}
+
+	.search {
+		position: absolute;
+		left: 11px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 1em;
+		color: rgba(207, 207, 207, 0.564);
+	}
+
+	.delete {
+		position: absolute;
+		right: 6px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 1.5em;
+		cursor: pointer;
+		color: rgba(207, 207, 207, 0.564);
+	}
+}
