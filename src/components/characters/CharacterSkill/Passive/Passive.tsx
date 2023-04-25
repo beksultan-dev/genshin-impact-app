@@ -1,14 +1,15 @@
 import { FC } from 'react';
-import { ICharacterSkills } from '../../../models/ICharacterSkills';
-import { BASE_URL } from '../../../utils/constants';
-import styles from './CharacterSkill.module.scss';
+import { ICharacterSkills } from '../../../../models/ICharacterSkills';
+import { BASE_URL } from '../../../../utils/constants';
+import styles from './Passive.module.scss';
 
-interface CharacterSkillProps {
+interface PassiveProps {
 	item: ICharacterSkills;
 	name: string;
+	index: number;
 }
 
-const CharacterSkill: FC<CharacterSkillProps> = ({ item, name }) => {
+const Passive: FC<PassiveProps> = ({ item, name, index }) => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.block1}>
@@ -23,7 +24,7 @@ const CharacterSkill: FC<CharacterSkillProps> = ({ item, name }) => {
 						name !== 'collei'
 							? name
 							: 'ayaka'
-					}/constellation-${item.level}`}
+					}/talent-passive-${index}`}
 					alt={item.name}
 					className={styles.image}
 				/>
@@ -37,4 +38,4 @@ const CharacterSkill: FC<CharacterSkillProps> = ({ item, name }) => {
 		</div>
 	);
 };
-export default CharacterSkill;
+export default Passive;

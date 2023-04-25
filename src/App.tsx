@@ -4,6 +4,7 @@ import SingleCharacterPage from './pages/single-character-page/SingleCharacterPa
 import './App.css';
 import ArtifactsList from './components/artifacts/ArtifactsList/ArtifactsList';
 import NotFound from './pages/not-found/NotFound';
+import { useInView } from 'react-intersection-observer';
 
 function App() {
 	return (

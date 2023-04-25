@@ -5,6 +5,7 @@ import { useAppDispatch } from '../../../hooks/custom';
 import { setCurrentCharacter } from '../../../store/Reducers/CharacterSlice';
 import { useNavigate } from 'react-router-dom';
 import styles from './CharacterItem.module.scss';
+import { useInView } from 'react-intersection-observer';
 
 interface SingleCharacterProps {
 	item: ICharacter;
@@ -21,18 +22,25 @@ const CharacterItem: FC<SingleCharacterProps> = ({ item }) => {
 		window.scrollTo({ top: 0, behavior: 'auto' });
 	};
 
+	const { ref, inView } = useInView({
+		threshold: 0.3,
+		triggerOnce: true,
+	});
+
 	return (
-		<div className={styles.item} onClick={handleClick}>
+		<div className={styles.item} onClick={handleClick} ref={ref}>
 			<div
 				className={
 					item.rarity === 5 ? styles.img_bg5 : styles.img_bg4
 				}
 			>
-				<img
-					className={styles.img}
-					src={`${BASE_URL}characters/${item.info}/icon-big`}
-					alt={item.info}
-				/>
+				{inView && (
+					<img
+						className={styles.img}
+						src={`${BASE_URL}characters/${item.info}/icon-big`}
+						alt={item.info}
+					/>
+				)}
 			</div>
 			<div className={styles.name}>{item.name}</div>
 		</div>

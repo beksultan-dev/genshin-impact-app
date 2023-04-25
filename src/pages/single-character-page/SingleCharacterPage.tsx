@@ -4,8 +4,20 @@ import AddFavorite from '../../components/favorites/AddFavorite/AddFavorite';
 import { useAppSelector } from '../../hooks/custom';
 import { BASE_URL } from '../../utils/constants';
 import styles from './SingleCharacterPage.module.scss';
+import { useState } from 'react';
+import Passive from '../../components/characters/CharacterSkill/Passive/Passive';
 
 const SingleCharacterPage = () => {
+	enum Skills {
+		constellations = 'constellations',
+		passiveTalents = 'passiveTalents',
+		skillTalents = 'skillTalents',
+	}
+
+	const [showSkills, setShowSkills] = useState<Skills>(
+		Skills.constellations
+	);
+
 	const { currentCharacter } = useAppSelector(
 		(state) => state.character
 	);
@@ -115,24 +127,86 @@ const SingleCharacterPage = () => {
 				</div>
 			</div>
 
-			<h3
-				style={{
-					fontSize: '24px',
-					fontWeight: '500px',
-					marginBottom: '10px',
-				}}
-			>
-				{currentCharacter?.name} Constellations
-			</h3>
-			{currentCharacter?.constellations.map((item, index) => (
-				<div className={styles.block_skill} key={index}>
-					<CharacterSkill
-						item={item}
-						key={index}
-						name={currentCharacter?.info}
-					/>
+			<div className={styles.skills_wrap}>
+				<div
+					onClick={() => setShowSkills(Skills.constellations)}
+					className={`${
+						showSkills === Skills.constellations
+							? 'active'
+							: ''
+					}`}
+				>
+					Constellations
 				</div>
-			))}
+				<div
+					onClick={() => setShowSkills(Skills.passiveTalents)}
+					className={`${
+						showSkills === Skills.passiveTalents
+							? 'active'
+							: ''
+					}`}
+				>
+					Passive Talents
+				</div>
+			</div>
+
+			{showSkills === Skills.constellations && (
+				<>
+					<h3
+						style={{
+							fontSize: '24px',
+							fontWeight: '500px',
+							marginBottom: '10px',
+						}}
+					>
+						{currentCharacter?.name} Constellations
+					</h3>
+					{currentCharacter?.constellations.map(
+						(item, index) => (
+							<div
+								className={styles.block_skill}
+								key={index}
+							>
+								<CharacterSkill
+									item={item}
+									key={index}
+									name={currentCharacter?.info}
+								/>
+							</div>
+						)
+					)}
+				</>
+			)}
+
+			{showSkills === Skills.passiveTalents && (
+				<>
+					<h3
+						style={{
+							fontSize: '24px',
+							fontWeight: '500',
+							marginBottom: '10px',
+						}}
+					>
+						{currentCharacter?.name} Passive Talents
+					</h3>
+
+					{currentCharacter?.passiveTalents.map(
+						(item, index) => (
+							<div
+								className={styles.block_skill}
+								key={index}
+							>
+								<Passive
+									item={item}
+									key={index}
+									name={currentCharacter?.info}
+									index={index}
+								/>
+							</div>
+						)
+					)}
+				</>
+			)}
 		</div>
 	);
 };

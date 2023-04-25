@@ -6,7 +6,6 @@ import { useAppDispatch, useAppSelector } from '../hooks/custom';
 import { BASE_URL } from '../utils/constants';
 import { HiXMark } from 'react-icons/hi2';
 import { deleteFromFavorite } from '../store/Reducers/FavoritesSlice';
-
 const Header: FC = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const dispatch = useAppDispatch();
@@ -16,6 +15,10 @@ const Header: FC = () => {
 		if (favoritesList) {
 			dispatch(deleteFromFavorite(info));
 		}
+	};
+
+	const handleClickRemove = () => {
+		setIsOpen(false);
 	};
 
 	return (
@@ -72,10 +75,7 @@ const Header: FC = () => {
 					)}
 				</div>
 
-				<div
-					className={styles.navbar}
-					onClick={() => setIsOpen(false)}
-				>
+				<div className={styles.navbar} onClick={handleClickRemove}>
 					<NavLink
 						to="/"
 						className={({ isActive }) =>

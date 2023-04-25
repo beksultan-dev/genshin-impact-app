@@ -9,7 +9,7 @@ import { ICharacter } from '../../../models/ICharacter';
 
 const CharactersList: FC = () => {
 	const [inputValue, setInputValue] = useState<string>('');
-	const [currentData, setCurrentData] = useState<ICharacter[]>([]);
+	const [currentData, setCurrentData] = useState<ICharacter[]>([]); 
 
 	const { data, isLoading } = useGetDataQuery();
 	const dispatch = useAppDispatch();
