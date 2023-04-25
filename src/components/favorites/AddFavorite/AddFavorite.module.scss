@@ -1,0 +1,41 @@
+.added {
+	font-size: 40px;
+	cursor: pointer;
+	color: rgb(178, 39, 5);
+}
+
+.not_added {
+	font-size: 40px;
+	cursor: pointer;
+	color: grey;
+}
+
+.wrap {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	position: relative;
+	user-select: none;
+}
+
+.added_div {
+	background-color: var(--second);
+	padding: 10px;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	user-select: none;
+	border-radius: 4px;
+}
+
+.not_added_div {
+	background-color: var(--second);
+	padding: 10px;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	user-select: none;
+	border-radius: 4px;
+}

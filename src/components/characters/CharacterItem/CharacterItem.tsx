@@ -18,12 +18,16 @@ const CharacterItem: FC<SingleCharacterProps> = ({ item }) => {
 		dispatch(setCurrentCharacter(item));
 		navigate(`/characters/${item.info}`.toLowerCase());
 
-		window.scrollTo({ top: 0, behavior: 'smooth' });
+		window.scrollTo({ top: 0, behavior: 'auto' });
 	};
 
 	return (
 		<div className={styles.item} onClick={handleClick}>
-			<div className={styles.img_bg}>
+			<div
+				className={
+					item.rarity === 5 ? styles.img_bg5 : styles.img_bg4
+				}
+			>
 				<img
 					className={styles.img}
 					src={`${BASE_URL}characters/${item.info}/icon-big`}

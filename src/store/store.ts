@@ -1,6 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { CharactersApi } from '../services/CharactersApi';
-import Char from './Reducers/CharacterSlice';
+import CharacterSlice from './Reducers/CharacterSlice';
 import {
 	persistStore,
 	persistReducer,
@@ -11,17 +10,20 @@ import {
 	PURGE,
 	REGISTER,
 } from 'redux-persist';
+import { CharactersApi } from '../services/CharactersApi';
 import storage from 'redux-persist/lib/storage';
+import FavoritesSlice from './Reducers/FavoritesSlice';
 
 const rootReducer = combineReducers({
 	[CharactersApi.reducerPath]: CharactersApi.reducer,
-	character: Char,
+	character: CharacterSlice,
+	favorites: FavoritesSlice,
 });
 
 const persistConfig = {
 	key: 'root',
 	storage,
-	whitelist: ['character'],
+	whitelist: ['character', 'favorites'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -3,6 +3,7 @@ import HomePage from './pages/home-page/HomePage';
 import SingleCharacterPage from './pages/single-character-page/SingleCharacterPage';
 import './App.css';
 import ArtifactsList from './components/artifacts/ArtifactsList/ArtifactsList';
+import NotFound from './pages/not-found/NotFound';
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 					element={<SingleCharacterPage />}
 				/>
 				<Route path="/artifacts" element={<ArtifactsList />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</div>
 	);

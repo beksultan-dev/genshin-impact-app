@@ -28,9 +28,19 @@ const CharactersList: FC = () => {
 		setCurrentData(newData);
 	}, [characterList, inputValue]);
 
-	if (isLoading) return <div className={styles.loader}></div>;
+	if (isLoading)
+		return (
+			<div className={styles.loader_div}>
+				<div className={styles.loader}></div>
+			</div>
+		);
 
-	if (Loading) return <div className={styles.loader}></div>;
+	if (Loading)
+		return (
+			<div className={styles.loader_div}>
+				<div className={styles.loader}></div>
+			</div>
+		);
 
 	return (
 		<div className={styles.container}>
